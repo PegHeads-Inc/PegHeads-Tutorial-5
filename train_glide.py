@@ -15,7 +15,7 @@ from glide_finetune.wds_loader import glide_wds_loader
 
 
 def run_glide_finetune(
-    data_dir="/content/data",
+    data_dir="./data",
     batch_size=1,
     learning_rate=1e-5,
     adam_weight_decay=0.0,
@@ -24,7 +24,7 @@ def run_glide_finetune(
     resize_ratio=1.0,
     uncond_p=0.0,
     resume_ckpt="",
-    checkpoints_dir="./finetune_checkpoints",
+    checkpoints_dir="./checkpoints",
     use_fp16=False,  # Tends to cause issues,not sure why as the paper states fp16 is stable.
     device="cpu",
     freeze_transformer=False,
@@ -289,7 +289,7 @@ if __name__ == "__main__":
         data_dir = glob(os.path.join(args.data_dir, "*.tar"))
     
     run_glide_finetune(
-        data_dir='/content/data',
+        data_dir=args.data_dir,
         batch_size=args.batch_size,
         learning_rate=args.learning_rate,
         adam_weight_decay=args.adam_weight_decay,
